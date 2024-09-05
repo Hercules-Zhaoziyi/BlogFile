@@ -196,7 +196,16 @@ function showWelcome() {
                     posdesc = "朝观日出逐白浪，夕看云起收霞光";
                     break;
                 case "四川":
-                    posdesc = "康康川妹子";
+                    
+                    switch (ipLocation.data.city) {
+                        case "广安":
+                            posdesc = "我在武胜等你~";
+                            break;
+                        default:
+                            posdesc = "康康川妹子";
+                            break;
+                    }
+                            
                     break;
                 case "贵州":
                     posdesc = "茅台，学生，再塞200";
@@ -244,11 +253,11 @@ function showWelcome() {
     // 根据本地时间切换欢迎语
     let timeChange;
     let date = new Date();
-    if (date.getHours() >= 5 && date.getHours() < 11) timeChange = "<span>?️ 早上好，一日之计在于晨</span>";
+    if (date.getHours() >= 5 && date.getHours() < 11) timeChange = "<span>🌤️ 早上好，一日之计在于晨</span>";
     else if (date.getHours() >= 11 && date.getHours() < 13) timeChange = "<span>☀️ 中午好，记得午休喔~</span>";
-    else if (date.getHours() >= 13 && date.getHours() < 17) timeChange = "<span>? 下午好，饮茶先啦！</span>";
-    else if (date.getHours() >= 17 && date.getHours() < 19) timeChange = "<span>?‍♂️ 即将下班，记得按时吃饭~</span>";
-    else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>? 晚上好，夜生活嗨起来！</span>";
+    else if (date.getHours() >= 13 && date.getHours() < 17) timeChange = "<span>🕞 下午好，饮茶先啦！</span>";
+    else if (date.getHours() >= 17 && date.getHours() < 19) timeChange = "<span>🚶‍♂️ 即将下班，记得按时吃饭~</span>";
+    else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>🌙 晚上好，夜生活嗨起来！</span>";
     else timeChange = "夜深了，早点休息，少熬夜";
 
     let welcomeInfoElement = document.getElementById("welcome-info");
